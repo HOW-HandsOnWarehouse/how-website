@@ -1,0 +1,119 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "src/assets/uploads"
+public_folder: "/assets/uploads"
+
+local_backend: true
+
+collections:
+  - name: "ajustes"
+    label: "Ajustes de sitio"
+    files:
+      - file: "src/_data/settings.json"
+        label: "Datos generales"
+        name: "settings"
+        fields:
+          - {label: "Nombre del sitio", name: "site_name", widget: "string"}
+          - {label: "Dominio", name: "domain", widget: "string"}
+          - {label: "Email", name: "email", widget: "string"}
+          - {label: "LinkedIn", name: "linkedin", widget: "string"}
+          - {label: "Ruta del logo", name: "logo_path", widget: "string"}
+          - {label: "Precio análisis (€)", name: "precio_analisis", widget: "number"}
+          - {label: "Optimización desde (€)", name: "precio_optimizacion_desde", widget: "number"}
+          - {label: "Ámbito", name: "ambito", widget: "string"}
+
+  - name: "paginas"
+    label: "Páginas"
+    files:
+      - file: "src/paginas/inicio.md"
+        label: "Inicio"
+        name: "inicio"
+        fields:
+          - {label: "Título", name: "title", widget: "string"}
+          - {label: "Meta Title", name: "meta_title", widget: "string", required: false}
+          - {label: "Meta Description", name: "meta_description", widget: "string", required: false}
+          - {label: "Contenido", name: "body", widget: "markdown"}
+
+      - file: "src/paginas/servicios.md"
+        label: "Servicios"
+        name: "servicios"
+        fields:
+          - {label: "Título", name: "title", widget: "string"}
+          - {label: "Meta Title", name: "meta_title", widget: "string", required: false}
+          - {label: "Meta Description", name: "meta_description", widget: "string", required: false}
+          - {label: "Contenido", name: "body", widget: "markdown"}
+
+      - file: "src/paginas/metodologia.md"
+        label: "Metodología"
+        name: "metodologia"
+        fields:
+          - {label: "Título", name: "title", widget: "string"}
+          - {label: "Meta Title", name: "meta_title", widget: "string", required: false}
+          - {label: "Meta Description", name: "meta_description", widget: "string", required: false}
+          - {label: "Contenido", name: "body", widget: "markdown"}
+
+      - file: "src/paginas/precios.md"
+        label: "Precios"
+        name: "precios"
+        fields:
+          - {label: "Título", name: "title", widget: "string"}
+          - {label: "Meta Title", name: "meta_title", widget: "string", required: false}
+          - {label: "Meta Description", name: "meta_description", widget: "string", required: false}
+          - {label: "Contenido", name: "body", widget: "markdown"}
+
+      - file: "src/paginas/casos.md"
+        label: "Página de Casos (listado)"
+        name: "casos_index"
+        fields:
+          - {label: "Título", name: "title", widget: "string"}
+          - {label: "Meta Title", name: "meta_title", widget: "string", required: false}
+          - {label: "Meta Description", name: "meta_description", widget: "string", required: false}
+          - {label: "Contenido", name: "body", widget: "markdown"}
+
+      - file: "src/paginas/sobre-how.md"
+        label: "Sobre HOW"
+        name: "sobre_how"
+        fields:
+          - {label: "Título", name: "title", widget: "string"}
+          - {label: "Meta Title", name: "meta_title", widget: "string", required: false}
+          - {label: "Meta Description", name: "meta_description", widget: "string", required: false}
+          - {label: "Contenido", name: "body", widget: "markdown"}
+
+      - file: "src/paginas/faq.md"
+        label: "FAQ (página contenedora)"
+        name: "faq_index"
+        fields:
+          - {label: "Título", name: "title", widget: "string"}
+          - {label: "Meta Title", name: "meta_title", widget: "string", required: false}
+          - {label: "Meta Description", name: "meta_description", widget: "string", required: false}
+          - {label: "Contenido", name: "body", widget: "markdown"}
+
+      - file: "src/paginas/contacto.md"
+        label: "Contacto"
+        name: "contacto"
+        fields:
+          - {label: "Título", name: "title", widget: "string"}
+          - {label: "Meta Title", name: "meta_title", widget: "string", required: false}
+          - {label: "Meta Description", name: "meta_description", widget: "string", required: false}
+          - {label: "Contenido", name: "body", widget: "markdown"}
+
+  - name: "casos"
+    label: "Casos de éxito"
+    folder: "src/casos"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Título", name: "title", widget: "string"}
+      - {label: "Extracto", name: "excerpt", widget: "text", required: false}
+      - {label: "Contenido", name: "body", widget: "markdown"}
+
+  - name: "faqs"
+    label: "FAQs"
+    folder: "src/faqs"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Pregunta", name: "title", widget: "string"}
+      - {label: "Respuesta", name: "body", widget: "markdown"}

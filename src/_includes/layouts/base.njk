@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if meta_title %}{{ meta_title }}{% else %}{{ title }} | HOW – HandsOn Warehouse{% endif %}</title>
+  <meta name="description" content="{{ meta_description | default('Consultoría presencial de optimización de almacenes para pymes en Tarragona.') }}">
+  <meta property="og:title" content="{% if meta_title %}{{ meta_title }}{% else %}{{ title }} | HOW – HandsOn Warehouse{% endif %}">
+  <meta property="og:description" content="{{ meta_description | default('Consultoría presencial de optimización de almacenes para pymes en Tarragona.') }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://{{ settings.domain }}{{ page.url }}">
+  <meta property="og:image" content="/assets/img/og-image.webp">
+  <link rel="icon" href="/assets/img/favicon.ico">
+  <style>
+    :root { --max: 1100px; }
+    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height:1.55; color:#0a0a0a; }
+    header, footer { border-bottom:1px solid #eee; }
+    .wrap { max-width: var(--max); margin:0 auto; padding: 1.2rem; }
+    nav a { margin-right: 1rem; text-decoration:none; color:#111; }
+    nav a:hover { text-decoration:underline; }
+    .cta { display:inline-block; padding:.7rem 1rem; border-radius:.6rem; border:1px solid #111; text-decoration:none; }
+    .cta.primary { background:#111; color:#fff; }
+    main section { padding: 2rem 0; border-bottom:1px solid #f2f2f2; }
+    h1,h2,h3 { line-height:1.2; }
+    ul { padding-left: 1.25rem; }
+    .grid { display:grid; gap:1rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .muted { color:#666; font-size:.95rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap" style="display:flex;align-items:center;gap:1rem;">
+      <a href="/"><img src="{{ settings.logo_path }}" alt="Logo HOW – HandsOn Warehouse" style="height:36px"></a>
+      <nav style="margin-left:auto;">
+        <a href="/servicios/">Servicios</a>
+        <a href="/metodologia/">Metodología</a>
+        <a href="/precios/">Precios</a>
+        <a href="/casos/">Casos</a>
+        <a href="/sobre-how/">Sobre HOW</a>
+        <a href="/faq/">FAQ</a>
+        <a href="/contacto/">Contacto</a>
+        <a class="cta primary" href="/contacto/">Solicitar diagnóstico ({{ settings.precio_analisis }} €)</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    {{ content | safe }}
+  </main>
+  <footer>
+    <div class="wrap">
+      <p><strong>{{ settings.site_name }}</strong> — {{ settings.ambito }}<br>
+      Contacto: <a href="mailto:{{ settings.email }}">{{ settings.email }}</a> · <a href="https://{{ settings.domain }}">{{ settings.domain }}</a></p>
+      <p class="muted"><a href="/legal/aviso-legal/">Aviso legal</a> · <a href="/legal/privacidad/">Política de privacidad</a> · <a href="/legal/cookies/">Política de cookies</a></p>
+    </div>
+  </footer>
+</body>
+</html>

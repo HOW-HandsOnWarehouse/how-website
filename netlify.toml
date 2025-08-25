@@ -1,0 +1,10 @@
+[build]
+  command = "npm run build"
+  publish = "_site"
+
+# Optional: pretty URLs
+[[redirects]]
+  from = "https://handsonwarehouse.es/*"
+  to = "https://www.handsonwarehouse.es/:splat"
+  status = 301
+  force = true
